@@ -28,7 +28,7 @@ const Register = () => {
   return (
     <div className="px-5 py-3">
       <h1 className="text-red-400 font-bold text-[30px]">
-        <Link to="/">Kalvium</Link>
+        <Link to="/">Kalvium Books</Link>
       </h1>
       <ToastContainer position="top-center" />
       <h1 className="text-[40px] text-center">CREATE ACCOUNT</h1>
