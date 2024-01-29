@@ -12,7 +12,7 @@ const Home = () => {
             console.log(error)
         })
     },[])
-    // console.log(data)
+    console.log(data)
     let handlechange =(e)=>{
         SetSearchitem(e.target.value)
         SetSuggest(data.filter((el)=>el.title.toLowerCase().includes(searchitem.toLowerCase())))
@@ -24,7 +24,8 @@ const Home = () => {
         <nav className='navbar'>
             <ul>
                 <li className='logo'>Kalvium Books</li>
-                <li><input className='search' type="text" placeholder='Search' list='books' onChange={handlechange} /><button className='searchbtn'>Search</button></li>
+                <li><input className='search' type="text" placeholder='Search' list='books' onChange={handlechange} />
+                {/* <button className='searchbtn'>Search</button> */}</li>
                 <li><Link to="./register"><button className='registerbtn'>Register</button></Link></li>
             </ul>
         </nav>
@@ -40,6 +41,7 @@ const Home = () => {
                     <div key={el.id} className='books'>
                         <img src={el.imageLinks.smallThumbnail} alt="" />
                         <h3>{el.title}</h3>
+                        <p>{el.averageRating && el.averageRating +"⭐"}</p>
                         <p>Free</p>
                     </div>
                 ))}
