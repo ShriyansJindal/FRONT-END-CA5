@@ -11,8 +11,11 @@ const Home = () => {
     SetSuggest(res.data.books)}).catch(error=>{
             console.log(error)
         })
+        // .finally(()=>{
+        //     console.log("Fetched")
+        // })
     },[])
-    console.log(data)
+    // console.log(data)
     let handlechange =(e)=>{
         SetSearchitem(e.target.value)
         SetSuggest(data.filter((el)=>el.title.toLowerCase().includes(searchitem.toLowerCase())))
@@ -21,7 +24,7 @@ const Home = () => {
     }
   return (
     <div className='container'>
-        <nav className='navbar'>
+        <nav className='navbar mt-4'>
             <ul>
                 <li className='logo'>Kalvium Books</li>
                 <li><input className='search' type="text" placeholder='Search' list='books' onChange={handlechange} />
@@ -40,7 +43,7 @@ const Home = () => {
                 {suggest.map((el)=>(
                     <div key={el.id} className='books'>
                         <img src={el.imageLinks.smallThumbnail} alt="" />
-                        <h3>{el.title}</h3>
+                        <h3 >{el.title}</h3>
                         <p>{el.averageRating && el.averageRating +"⭐"}</p>
                         <p>Free</p>
                     </div>
