@@ -1,0 +1,58 @@
+body{
+    margin: 0%;
+    padding: 0%;
+}
+.container{
+    /* border: 2px solid black; */
+}
+.navbar ul{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 50px;
+}
+.navbar ul li{
+    list-style: none;
+}
+.logo{
+    font-size: 30px;
+    font-weight: 800;
+    color: red;
+}
+.search{
+    width: 40vw;
+    padding: 10px 20px;
+/* ?border: none; */
+border-radius: 5px 0px 0px 5px;
+
+}
+.searchbtn{
+    padding: 10px 20px;
+    background-color: white;
+    /* border: none; */
+    border-radius: 0px 5px 5px 0px;
+    /* box-shadow: 2px 2px 2px 0px gray; */
+}
+.registerbtn{
+    padding: 10px 20px;
+}
+.books-container{
+display: flex;
+padding: 10px 50px;
+flex-wrap: wrap;
+/* justify-content: space-between; */
+justify-content: center;
+margin-top: 100px;
+}
+.books{
+    margin: 10px;
+    /* border: 1px solid black; */
+    width: 22%;
+    height: 450px;
+    padding: 5px 10px;
+}
+.books img{
+    border-radius: 15px;
+    width: 220px;
+    height: 300px;
+}
