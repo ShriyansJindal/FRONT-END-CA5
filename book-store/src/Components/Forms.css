@@ -1,0 +1,59 @@
+.form-container{
+    /* border: 2px solid black; */
+    height: 98vh;
+    padding: 5px 10px;
+}
+/* logo */
+.logo-reg {
+    text-decoration: none;
+    font-size: 30px;
+    font-weight: 800;
+    color: red;
+    cursor: pointer;
+    /* border: 2px solid gray; */
+    margin-bottom: 10px;
+    margin-left: 20px;
+}
+/* heading create account */
+.create{
+    font-size: 40px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+/* form container */
+.form{
+    border: 2px solid black;
+    width: 35%;
+    text-align: center;
+    margin: auto;
+    padding: 15px 10px;
+}
+/* input */
+.input-container{
+    margin: 20px 10px;
+    /* border: 2px solid; */
+}
+.input{
+    border: 2px solid black;
+    width: 90%;
+    padding: 10px 15px;
+}
+/* erroros */
+.error{
+    /* "text-red-600 text-left mx-6 mb-3 */
+    color: red;
+    text-align: left;
+    margin-left: 15px;
+    margin-top: 0%;
+}
+.submitbtn{
+    /* border-2 border-black py-2 px-4 */
+    background: none;
+    border: 2px solid black;
+    padding: 10px 15px;
+}
+.error-last{
+    color: red;
+    margin-left: 15px;
+    margin-top: 0%;
+}

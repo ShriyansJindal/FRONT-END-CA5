@@ -3,45 +3,51 @@ import { ToastContainer, toast } from "react-toastify";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
-import { useNavigate } from "react-router-dom";
+import "./Forms.css"
 
 const Register = () => {
-  const navigate = useNavigate();
-  let [signup, setSignup] = useState(false);
+// storing data from the user
+  let [userdata,setUserdata] = useState({
+    fullName:"",
+    Email:"",
+    Password:"",
+    RePassword:""
+  })
+
   let {
     register,
     handleSubmit,
     watch,
     formState: { errors },
   } = useForm();
+//on submit function
   let onSubmit = (el) => {
-    setSignup(true);
-    console.log(el);
+    setUserdata({...userdata,fullName:el.fullName, Email:el.Email, Password:el.Password,RePassword:el.RePassword})
+    console.log(el)
     notify();
-    setTimeout(() => {
-      navigate("/");
-      
-    }, 2000);
   };
+  // console.log(userdata)
+
   let password = watch("Password", " ");
   const notify = () => toast("Registration Successfull !");
+
+  
   return (
-    <div className="px-5 py-3">
-      <h1 className="text-red-400 font-bold text-[30px]">
-        <Link to="/">Kalvium Books</Link>
+    <div className=" form-container">
+      <h1>
+        <Link to="/" className="logo-reg">Kalvium Books</Link>
       </h1>
       <ToastContainer position="top-center" />
-      <h1 className="text-[40px] text-center">CREATE ACCOUNT</h1>
+      <h1 className="create">CREATE ACCOUNT</h1>
       <form
-        action=""
-        className="form border-2 box-border mt-10 text-center border-black w-[35%]  m-auto px-10 py-5 "
+        className="form"
         onSubmit={handleSubmit(onSubmit)}
       >
-        <div className="m-2 my-5">
+        <div className="input-container">
           <input
             type="text"
             placeholder="Enter your name"
-            className="border-2 border-black w-[90%] m-0 px-3 py-2 "
+            className="input "
             name="fullName"
             {...register("fullName", {
               required: "Name is required",
@@ -56,16 +62,16 @@ const Register = () => {
             })}
           />
           {errors.fullName && (
-            <p className="text-red-600 text-left mx-6 mb-3">
+            <p className="error">
               {errors.fullName.message}
             </p>
           )}
         </div>
-        <div className="m-2 my-5">
+        <div className="input-container">
           <input
             type="text"
             placeholder="Enter your email"
-            className="border-2 border-black w-[90%] m-0 px-3 py-2 "
+            className="input "
             name="Email"
             {...register("Email", {
               required: "Email is required",
@@ -76,17 +82,17 @@ const Register = () => {
             })}
           />
           {errors.Email && (
-            <p className="text-red-600 text-left mx-6 mb-3">
+            <p className="error">
               {errors.Email.message}
             </p>
           )}
         </div>
 
-        <div className="m-2 my-5">
+        <div className="input-container">
           <input
             type="text"
             placeholder="Enter your password"
-            className="border-2 border-black w-[90%] m-0 px-3 py-2"
+            className="input"
             name="Password"
             {...register("Password", {
               required: "Password is required",
@@ -101,16 +107,16 @@ const Register = () => {
             })}
           />
           {errors.Password && (
-            <p className="text-red-600 text-left mx-6 mb-3">
+            <p className="error">
               {errors.Password.message}
             </p>
           )}
         </div>
 
-        <div className="m-2 my-5">
+        <div className="input-container">
           <input
             type="text"
-            className="border-2 border-black w-[90%] m-0 px-3 py-2"
+            className="input"
             placeholder="Confirm your password"
             name="RePassword"
             {...register("RePassword", {
@@ -119,7 +125,7 @@ const Register = () => {
             })}
           />
           {errors.RePassword && (
-            <p className="text-red-600 text-left mx-6 ">
+            <p className="error ">
               {errors.RePassword.message}
             </p>
           )}
@@ -127,13 +133,13 @@ const Register = () => {
         <div>
           <input
             type="checkbox"
-            className="mx-2"
+            className=""
             name="Terms"
             {...register("Terms", { required: "This is required" })}
           />
-          I agree all statements in Terms of service
+          I agree all statements in Terms & conditions
           {errors.Terms && (
-            <p className="text-red-600 text-left mx-6">
+            <p className="error-last">
               {errors.Terms.message}
             </p>
           )}
@@ -141,7 +147,7 @@ const Register = () => {
         <br />
 
         <input
-          className="submitbtn border-2 border-black py-2 px-4"
+          className="submitbtn "
           type="submit"
           value="Sign up"
         />
